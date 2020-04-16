@@ -2,7 +2,11 @@
 
 <suite name="Adviser" allow-return-values="true" verbose="1">
 
+	<listeners>
 	
+	<listener class-name="com.indigo.utility.ExtentReport"/>
+	
+	</listeners>
 
 	<test name="Assertion">
 

@@ -1,4 +1,26 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 73.632 sec
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 52.916 sec <<< FAILURE!
+flightPrice_1(com.indigo.mainscript.TestOne)  Time elapsed: 25.64 sec  <<< FAILURE!
+java.lang.AssertionError: expected [₹1,966] but found [null]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:129)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:189)
+	at org.testng.Assert.assertEquals(Assert.java:199)
+	at com.indigo.testcases.TestTwo.tco1(TestTwo.java:38)
+	at com.indigo.mainscript.TestOne.flightPrice_1(TestOne.java:24)
+
+flightPrice_2(com.indigo.mainscript.TestOne)  Time elapsed: 24.584 sec  <<< FAILURE!
+java.lang.AssertionError: expected [₹1,966] but found [null]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:129)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:189)
+	at org.testng.Assert.assertEquals(Assert.java:199)
+	at com.indigo.testcases.TestTwo.tco2(TestTwo.java:61)
+	at com.indigo.mainscript.TestOne.flightPrice_2(TestOne.java:42)
+

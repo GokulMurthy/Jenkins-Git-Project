@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Command line suite]" verbose="0">
-  <test name="Command line test(failed)">
+<suite name="Failed suite [Adviser]" guice-stage="DEVELOPMENT" allow-return-values="true" verbose="0">
+  <listeners>
+    <listener class-name="com.indigo.listeners.ExtentReportListener"/>
+    <listener class-name="com.indigo.listeners.AnnotationTransform"/>
+  </listeners>
+  <test thread-count="5" name="Assertion(failed)" verbose="0">
     <classes>
       <class name="com.indigo.mainscript.TestOne">
         <methods>
           <include name="tearDown"/>
-          <include name="flightPrice_1"/>
           <include name="flightPrice_2"/>
         </methods>
       </class> <!-- com.indigo.mainscript.TestOne -->
     </classes>
-  </test> <!-- Command line test(failed) -->
-</suite> <!-- Failed suite [Command line suite] -->
+  </test> <!-- Assertion(failed) -->
+</suite> <!-- Failed suite [Adviser] -->

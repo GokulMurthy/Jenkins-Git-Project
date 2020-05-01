@@ -12,7 +12,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,6 +20,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ActionKeywords {
 	
@@ -48,11 +49,13 @@ public class ActionKeywords {
 	{
 		if(bname.equalsIgnoreCase("CHROME"))
 		{
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 		}
 		else if(bname.equalsIgnoreCase("FIREFOX"))
 		{
+			WebDriverManager.firefoxdriver().setup();
 			driver=new FirefoxDriver();
 			driver.manage().window().maximize();	
 		}
@@ -150,21 +153,29 @@ public class ActionKeywords {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(LocatorSplitFunction.locatorSplit(locatorVariable))));
 	}
 	
-	public void screenShot(String fileName) throws IOException
-	{
-		TakesScreenshot scsh = ((TakesScreenshot)driver);
-				
-		File srcFile = scsh.getScreenshotAs(OutputType.FILE);
-		
-		File destFile = new File("C:\\Users\\gokul\\eclipse-workspace\\TestNG_Project\\screenshot\\" +"FailedScreenshot" +"_" +fileName +".jpg");
-		
-		FileUtils fut = new FileUtils();
-		
-		fut.copyFile(srcFile, destFile);
-				
-		
-	}
 	
+	
+	  public String screenShot(String Filename) throws IOException 
+	  
+	  { 
+		  
+	  TakesScreenshot scsh = ((TakesScreenshot)driver);
+	  
+	  File srcFile = scsh.getScreenshotAs(OutputType.FILE);
+	  
+	  String reportDirectory = System.getProperty("user.dir") + "/screenshot/" + Filename +"_" + System.currentTimeMillis() + ".png";
+	  
+	  File destination = new File(reportDirectory);
+	  
+	  FileUtils fut = new FileUtils();
+	  
+	  fut.copyFile(srcFile, destination);
+	  
+	  return reportDirectory;
+	  
+	  }
+	 
+		
 	public void CloseBrowser()
 	{
 		driver.quit();

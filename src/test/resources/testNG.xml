@@ -4,8 +4,9 @@
 
 	<listeners>
 	
-	<listener class-name="com.indigo.utility.ExtentReport"/>
-	
+	<listener class-name="com.indigo.listeners.ExtentReportListener"></listener>
+	<listener class-name="com.indigo.listeners.AnnotationTransform"></listener>
+		
 	</listeners>
 
 	<test name="Assertion">

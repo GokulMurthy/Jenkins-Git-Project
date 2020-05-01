@@ -58,7 +58,7 @@ public class TestTwo {
 			e.printStackTrace();
 		}
 
-		Assert.assertEquals(priceValue, "₹1,966");
+		Assert.assertEquals(priceValue, "₹1,967");
 
 	}
 
